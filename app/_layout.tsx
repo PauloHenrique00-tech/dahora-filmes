@@ -1,6 +1,8 @@
-import { View, Text } from "react-native";
-import Loading from "../src/components/Loading";
 import { useFonts } from "expo-font";
+import Loading from "../src/components/Loading";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import { Stack } from "expo-router";
 
 export default function Layout() {
   const [fonteCarregada] = useFonts({
@@ -10,9 +12,22 @@ export default function Layout() {
   if (!fonteCarregada) {
     return <Loading />;
   }
+
   return (
-    <View>
-      <Text>_layout</Text>
-    </View>
+    <SafeAreaProvider>
+      <StatusBar style="auto" />
+
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#5451a6",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+    </SafeAreaProvider>
   );
 }
