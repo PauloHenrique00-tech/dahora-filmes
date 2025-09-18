@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function index() {
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
+      <Stack.Screen options={{ headerShown: false, headerTitle: "Home" }} />
 
       <SafeAreaView style={estilos.container}>
         <StatusBar style="auto"></StatusBar>
