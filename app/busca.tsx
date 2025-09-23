@@ -1,5 +1,13 @@
 // app/busca.tsx
-import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  Vibration,
+  View,
+} from "react-native";
 
 // @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
@@ -12,6 +20,7 @@ export default function Busca() {
   const [filme, setFilme] = useState<string>("");
 
   const buscarFilmes = () => {
+    Vibration.vibrate(3000);
     if (!filme) {
       return Alert.alert("Ops", "você deve digitar um filme!");
     }
