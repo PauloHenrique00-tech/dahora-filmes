@@ -29,7 +29,7 @@ export default function Busca() {
     }
 
     // Navega para a tela de resultados, passando o filme digitado como parâmetro de rota
-    router.push(`/resultados?filmes=${filme}`);
+    router.push(`/resultados?filme=${filme}`);
   };
 
   return (
