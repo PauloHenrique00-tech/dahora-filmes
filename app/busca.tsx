@@ -1,31 +1,12 @@
 // app/busca.tsx
-import {
-  Alert,
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  Vibration,
-  View,
-} from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 // @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
 
 export default function Busca() {
-  // Hook para armazenar o filme digitado pelo usuário
-  const [filme, setFilme] = useState<string>("");
-
-  const buscarFilmes = () => {
-    if (!filme) {
-      Vibration.vibrate(3000);
-      return Alert.alert("Ops", "você deve digitar um filme!");
-    }
-  };
-
   return (
     <>
       <Stack.Screen
@@ -46,12 +27,9 @@ export default function Busca() {
             placeholder="Digite o nome do filme"
             style={estilos.campo}
             inputMode="search"
-            value={filme}
-            onChangeText={setFilme}
-            onSubmitEditing={buscarFilmes}
           />
         </View>
-        <Button title="Procurar" color="#5451a6" onPress={buscarFilmes} />
+        <Button title="Procurar" color="#5451a6" />
       </SafeAreaView>
     </>
   );
