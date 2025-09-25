@@ -4,11 +4,20 @@ import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 // @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
 import { CardFilmeProps } from "../types";
+import { useRouter } from "expo-router";
 
 export default function CardFilme({ filme }: CardFilmeProps) {
-  // Extraindo cada prop de dentro do filme
   const { id, title, poster_path } = filme;
   console.log(id, title, poster_path);
+
+  // Importando o router para permitir a navegação através da programação
+  const router = useRouter();
+
+  const leiaMais = () => {
+    router.push({
+      pathname: "/detalhes/[id]",
+    });
+  };
 
   return (
     <View style={estilos.card}>
@@ -26,7 +35,7 @@ export default function CardFilme({ filme }: CardFilmeProps) {
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
-          <Pressable style={estilos.botao}>
+          <Pressable style={estilos.botao} onPress={leiaMais}>
             <Text style={estilos.textoBotao}>
               <Ionicons name="book" size={12} /> Leia mais
             </Text>
