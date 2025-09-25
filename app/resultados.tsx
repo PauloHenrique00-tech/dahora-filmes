@@ -6,6 +6,7 @@ import { Filme, ParametrosBusca } from "@/src/types";
 import { useEffect, useState } from "react";
 import { api } from "@/src/services/api";
 import Loading from "@/src/components/Loading";
+import CardFilme from "@/src/components/CardFilme";
 
 export default function Resultados() {
   const { filme } = useLocalSearchParams<ParametrosBusca>();
@@ -57,7 +58,9 @@ export default function Resultados() {
           <FlatList
             data={resultados}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <Text>{item.title}</Text>}
+            renderItem={({ item }) => <CardFilme filme={item}></CardFilme>}
+            numColumns={2}
+            columnWrapperStyle={estilos.coluna}
             ListEmptyComponent={<Text>Nenhum filme encontrado!</Text>}
           />
         )}
