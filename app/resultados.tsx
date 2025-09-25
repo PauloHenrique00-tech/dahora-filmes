@@ -61,6 +61,7 @@ export default function Resultados() {
             renderItem={({ item }) => <CardFilme filme={item}></CardFilme>}
             numColumns={2}
             columnWrapperStyle={estilos.coluna}
+            showsVerticalScrollIndicator={false}
             ListEmptyComponent={<Text>Nenhum filme encontrado!</Text>}
           />
         )}
