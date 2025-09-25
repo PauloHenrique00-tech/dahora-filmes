@@ -19,7 +19,7 @@ export default function Resultados() {
         params: {
           language: "pt-BR",
           query: filme,
-          include_adult: true,
+          include_adult: false,
         },
       })
       .then((resposta) => console.log(resposta.data.results))
