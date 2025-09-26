@@ -64,3 +64,9 @@ de favoritos. A função some() retorna true se encontrar pelo menos
   // Retorna true sinalizando que o filme foi salvo
   return true;
 }
+/**
+ * Chamar a função carregar e retornar a lista de favoritos (filmes)
+ */
+export async function buscarFavoritos(): Promise<Filme[]> {
+  return carregar();
+}
