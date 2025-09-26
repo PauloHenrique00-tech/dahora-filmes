@@ -23,17 +23,18 @@ export default function Detalhes() {
 
       <SafeAreaView style={estilos.container}>
         <ScrollView>
-          <View style={estilos.imagemContainer}></View>
-          <Image
-            source={
-              filme.backdrop_path
-                ? {
-                    uri: `https://image.tmdb.org/t/p/original/${filme.backdrop_path}`,
-                  }
-                : require("@/assets/foto-alternativa.jpg")
-            }
-            style={estilos.imagem}
-          />
+          <View style={estilos.imagemContainer}>
+            <Image
+              source={
+                filme.backdrop_path
+                  ? {
+                      uri: `https://image.tmdb.org/t/p/original/${filme.backdrop_path}`,
+                    }
+                  : require("@/assets/foto-alternativa.jpg")
+              }
+              style={estilos.imagem}
+            />
+          </View>
           <View style={estilos.corpo}>
             <Text style={estilos.titulo}>{filme.title}</Text>
             <View style={estilos.viewDetalhes}>
@@ -74,7 +75,7 @@ const estilos = StyleSheet.create({
   imagem: {
     width: "100%",
     height: "100%",
-    resizeMode: "cover", //adicione o modo de redimensionamento
+    resizeMode: "cover", // adicione o modo de redimensionamento
   },
   corpo: {
     padding: 16,
