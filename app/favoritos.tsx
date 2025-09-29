@@ -89,6 +89,12 @@ export default function Favoritos() {
       <Stack.Screen
         options={{
           headerTitle: "Meus Favoritos",
+          headerRight: () =>
+            favoritos.length > 0 && (
+              <Pressable onPress={apagarTudo}>
+                <Ionicons name="trash" size={24} color="#fff" />
+              </Pressable>
+            ),
         }}
       />
       <SafeAreaView style={estilos.container}>
