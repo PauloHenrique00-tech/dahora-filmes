@@ -27,7 +27,7 @@ export async function carregar(): Promise<Filme[]> {
 
 carregar();
 /**
- * Gravar a lista de favoritos no Async Storage
+ * Grava a lista de favoritos no Async Storage
  */
 export async function salvarLista(lista: Filme[]): Promise<void> {
   try {
@@ -65,8 +65,25 @@ de favoritos. A função some() retorna true se encontrar pelo menos
   return true;
 }
 /**
- * Chamar a função carregar e retornar a lista de favoritos (filmes)
+ * Chama a função carregar e retornar a lista de favoritos (filmes)
  */
 export async function buscarFavoritos(): Promise<Filme[]> {
   return carregar();
+}
+
+/** Excluir um filme específico pelo seu id */
+export async function removerFilmeFavorito(id: number): Promise<void> {
+  // Carregando a lista de favoritos já existentes no storage
+  const favoritos = await carregar();
+
+  /* Filtrando a lista de favoritos já existente, avaliando 
+  qual filme deve ser "descartado/removido". Com isso, geramos uma nova
+  lista atualizada SEM o filme que deve ser removido. */
+  const listaAtualizada = favoritos.filter(
+    (filmeExistente) => filmeExistente.id !== id
+  );
+
+  // Pegamos a nova lista atualizada, e enviamos para o salvarLista gravar no storage
+  // Na prática, sobrescrevemos a lista anterior
+  await salvarLista(listaAtualizada);
 }
