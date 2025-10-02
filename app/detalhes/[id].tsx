@@ -21,7 +21,7 @@ export default function Detalhes() {
         }}
       />
 
-      <SafeAreaView style={estilos.container}>
+      <View style={estilos.container}>
         <ScrollView>
           <View style={estilos.imagemContainer}>
             <Image
@@ -51,7 +51,7 @@ export default function Detalhes() {
             </Text>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </View>
     </>
   );
 }
