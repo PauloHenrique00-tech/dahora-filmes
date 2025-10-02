@@ -26,6 +26,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       backgroundColor: "#000000",
     },
     edgeToEdgeEnabled: true,
+    package: "com.paulohenrique.dahorafilmes",
   },
   plugins: ["expo-font", "expo-asset", "expo-router"],
   // Acessando a API_KEY através do dotenv e guardando na chave apiKey
