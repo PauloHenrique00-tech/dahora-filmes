@@ -12,6 +12,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: "portrait",
   icon: "./assets/icone.png",
   userInterfaceStyle: "automatic",
+  platforms: ["ios", "android"], // 👈 Adicione esta linha
   splash: {
     image: "./assets/splash-dahora.png",
     resizeMode: "contain",
