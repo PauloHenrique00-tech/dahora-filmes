@@ -30,5 +30,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   // Acessando a API_KEY através do dotenv e guardando na chave apiKey
   extra: {
     apiKey: process.env.API_KEY,
+    eas: {
+      projectId: "632b4c17-d365-4afb-8f46-6b916150b6c5",
+    },
   },
 });
